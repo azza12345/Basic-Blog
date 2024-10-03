@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .container {
+        background-color: #AEEEEE; /* Baby blue */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* White shadow */
+    }
+
+    .card {
+        height: 100%; /* Ensure all cards take full height */
+        display: flex; /* Use flexbox for layout */
+        flex-direction: column; /* Arrange content vertically */
+    }
+
+    .card img {
+        flex: 1; /* Allow the image to grow and fill the space */
+        object-fit: cover; /* Maintain aspect ratio and cover area */
+        border-radius: 8px 8px 0 0; /* Rounded corners for the image */
+    }
+
+    .card-body {
+        flex: 0 0 auto; /* Prevent the card body from stretching */
+    }
+
+    .row {
+        display: flex; /* Use flexbox for row layout */
+        justify-content: space-between; /* Distribute space between cards */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">Welcome to the Blog</h1>
+        <p class="lead text-muted">Explore our blog posts, manage authors, and browse departments.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="~/Images/Post.png" alt="Post Image" class="img-fluid" />
+
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Posts</h5>
+                    <p class="card-text">Discover and manage blog posts here.</p>
+                    <a asp-controller="Posts" asp-action="Index" class="btn btn-outline-primary btn-block">View Posts</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="~/Images/Author3.jpeg" alt="Author Image" class="img-fluid" />
+
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">Authors</h5>
+                    <p class="card-text">Manage and update blog authors.</p>
+                    <a asp-controller="Author" asp-action="Index" class="btn btn-outline-success btn-block">View Authors</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="~/Images/Department.png" alt="Department Image" class="img-fluid" />
+                <div class="card-body text-center">
+                    <h5 class="card-title text-warning">Departments</h5>
+                    <p class="card-text">Browse and manage departments.</p>
+                    <a asp-controller="Department" asp-action="Index" class="btn btn-outline-warning btn-block">View Departments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

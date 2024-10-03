@@ -14,10 +14,16 @@ namespace Basic_Blog.Controllers
         }
 
         // GET: Authors
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Authors.Include(a => a.Posts).ToListAsync());
+        //}
+        public IActionResult Index()
         {
-            return View(await _context.Authors.Include(a => a.Posts).ToListAsync());
+            var authors = _context.Authors.ToList(); // Get the list of authors from the database
+            return View(authors); // Pass the list to the view
         }
+
 
         // GET: Author/Create
         public IActionResult Create()

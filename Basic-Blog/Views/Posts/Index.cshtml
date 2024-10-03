@@ -4,20 +4,75 @@
     ViewData["Title"] = "Blog Posts";
 }
 
+<style>
+    body {
+        background-color: #f0f8ff; /* Very light blue background */
+    }
+    .card {
+        background-color: white; /* White card background */
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .card-title {
+        color: #0056b3; /* Primary blue for titles */
+    }
+    .btn-custom {
+        background-color: #0056b3; /* Primary button color */
+        color: white;
+        border-radius: 20px;
+        padding: 5px 15px;
+        transition: background-color 0.3s;
+    }
+    .btn-custom:hover {
+        background-color: #004494;
+    }
+    .btn-outline-info {
+        border-color: #0056b3;
+        color: #0056b3;
+    }
+    .btn-outline-info:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+    .btn-outline-warning {
+        border-color: #f8c471;
+        color: #f8c471;
+    }
+    .btn-outline-warning:hover {
+        background-color: #f8c471;
+        color: white;
+    }
+    .btn-outline-danger {
+        border-color: #ff6f61;
+        color: #ff6f61;
+    }
+    .btn-outline-danger:hover {
+        background-color: #ff6f61;
+        color: white;
+    }
+    .container {
+        background-color: #AEEEEE; /* Light baby blue container */
+        padding: 20px;
+        border-radius: 15px;
+    }
+</style>
+
 <div class="container mt-5">
     <h1 class="text-center">@ViewData["Title"]</h1>
 
     <div class="text-end mb-3">
-        <a asp-action="Create" class="btn btn-primary">Create New Post</a>
+        <a asp-action="Create" class="btn btn-custom">Create New Post</a>
     </div>
 
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title text-primary">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
                         <p class="card-text">
                             <strong>Description:</strong> @Html.DisplayFor(modelItem => item.Description)
                         </p>

@@ -4,43 +4,104 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<style>
+    body {
+        background-color: #f0f8ff; /* Light blue background */
+    }
 
-<h4>Post</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostType" class="control-label"></label>
-                <input asp-for="PostType" class="form-control" />
-                <span asp-validation-for="PostType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
-                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
-                <span asp-validation-for="AuthorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    .container {
+        background-color: white; /* White form background */
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        margin: 50px auto;
+    }
+
+    h1 {
+        color: #0056b3; /* Dark blue title */
+    }
+
+    label {
+        color: #0056b3; /* Dark blue for labels */
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid #0056b3;
+    }
+
+    .btn-primary {
+        background-color: #0056b3; /* Dark blue button */
+        border-color: #0056b3;
+        color: white;
+        border-radius: 20px;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #004494; /* Slightly darker blue on hover */
+    }
+
+    .btn-back {
+        background-color: #AEEEEE; /* Light baby blue for back button */
+        color: #0056b3;
+        border-radius: 20px;
+        padding: 10px 20px;
+        border: none;
+        transition: background-color 0.3s;
+    }
+
+    .btn-back:hover {
+        background-color: #B0E0E6; /* Slight hover effect */
+    }
+</style>
+
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <h4 class="text-center">Post</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PostType" class="control-label"></label>
+                    <input asp-for="PostType" class="form-control" />
+                    <span asp-validation-for="PostType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="AuthorId" class="control-label"></label>
+                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn btn-back">Back to List</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

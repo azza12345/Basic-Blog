@@ -4,13 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center" style="color: #4A90E2;">Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-center">
+    <a asp-action="Create" class="btn btn-primary" style="background-color: #4A90E2; border-color: #4A90E2;">Create New</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table" style="background-color: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+    <thead class="thead-light" style="background-color: #4A90E2; color: white;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -22,20 +23,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<style>
+    body {
+        background-color: #EAF7FF; /* Light baby blue background */
+    }
+
+    table {
+        margin: 20px auto; /* Center the table */
+        border-radius: 10px; /* Round the corners */
+        overflow: hidden; /* Prevent overflow for rounded corners */
+    }
+
+    th, td {
+        padding: 15px; /* Add some padding for better spacing */
+        text-align: left; /* Align text to the left */
+    }
+</style>

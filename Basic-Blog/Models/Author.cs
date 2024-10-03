@@ -9,6 +9,6 @@
         public string Gender { get; set; }
         public string Address { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<Post>? Posts { get; set; }
     }
 }
